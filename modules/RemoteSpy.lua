@@ -49,7 +49,7 @@ local function connectEvent(callback)
 end
 
 local nmcTrampoline
-nmcTrampoline = hookMetaMethod(game, "__namecall", function(...)
+nmcTrampoline = hookMetaMethod(game, "__namecall", newcclosure(function(...)
     local instance = ...
     
     if typeof(instance) ~= "Instance" then
@@ -95,7 +95,7 @@ nmcTrampoline = hookMetaMethod(game, "__namecall", function(...)
     end
 
     return nmcTrampoline(...)
-end)
+end))
 
 -- vuln fix
 
