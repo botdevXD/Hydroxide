@@ -107,7 +107,7 @@ end
 
 for _name, hook in pairs(methodHooks) do
     local originalMethod
-    originalMethod = hookFunction(hook, newCClosure(function(...)
+    originalMethod = hookFunction(hook, newcclosure(function(...)
         local instance = ...
 
         if typeof(instance) ~= "Instance" then
